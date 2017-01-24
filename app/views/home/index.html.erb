@@ -1,0 +1,13 @@
+<h2>Artículos <%= link_to fa_icon("plus", text: "Crear"), new_article_path, class:'btn btn-success' %> </h2>
+<% if @articles.count > 0 %>
+  <% @articles.each do |article| %>
+    <h3> <%= article.title.titleize %>
+          <%= link_to fa_icon("eye"), article %>
+          <%= link_to fa_icon("pencil"), edit_article_path(article) %>
+          <%= link_to fa_icon("times"), article, method: :delete, data: { confirm: 'Seguro de eliminar el artículo?' } %>
+    </h3>
+    <h5> <%= article.introduction %></h5>
+  <% end %>
+<% else %>
+  <h3>Mala suerte, no hay artículos publicados todavía!</h3>
+<% end %>

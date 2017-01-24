@@ -1,0 +1,8 @@
+<h1> <%= @article.title %> <%= link_to fa_icon("pencil"), edit_article_path(@article) %> </h1>
+<h3> <%= @article.introduction %> </h3>
+<p>CANTIDAD
+  <%= @article.categories.count %>
+</p>
+<p>
+  <%= raw @article.body %>
+</p>

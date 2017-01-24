@@ -1,0 +1,31 @@
+<%= simple_form_for @article do |a| %>
+  <div class="row">
+    <%= a.input :title, label: false, placeholder: 'Título del artículo' %>
+  </div>
+  <div class="row">
+    <%= a.input :introduction, label: false, placeholder: 'Descripción breve del artículo' %>
+  </div>
+  <div class="row">
+    <%= a.input :published, inline_label: 'Hacer visible el artículo' %>
+  </div>
+  <div class="row">
+    <%= a.association :categories, as: :check_boxes %>
+  </div>
+  <div class="row">
+    <%= a.input :body, label: false, input_html: {id:'froala-editor'} %>
+  </div>
+
+  <%= a.button :submit, class:'btn btn-success' %>
+<% end %>
+
+<script>
+  $(function() {
+    $('textarea#froala-editor').froalaEditor({
+      heightMin: 250,
+      heightMax: 1000,
+      toolbarSticky: true,
+      theme: 'gray',
+      zIndex: 2003
+    })
+  });
+</script>
